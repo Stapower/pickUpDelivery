@@ -1,11 +1,32 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Home</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <google-map></google-map>
-</ion-content>
+	<div id="step-1" >
+		<google-map></google-map>
+	</div>
 
+	<div id="step-2">
+		<trip-information></trip-information>
+	</div>
+
+	<div>
+		<div style="text-align:center;margin-top:40px;">
+			<button type="button" id="prevBtn" (click)="prev()">Anterior</button>
+			<button type="button" id="nextBtn" (click)="next()">Siguiente</button>
+		</div>
+	</div>
+
+	<div style="text-align:center;margin-top:40px;">
+		<span class="step" id="stepMarker-1"></span>
+		<span class="step" id="stepMarker-2"></span>
+		<span class="step" id="stepMarker-3"></span>
+		<span class="step" id="stepMarker-4"></span>
+	</div>
+
+</ion-content>

@@ -11,6 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {GoogleMapComponent} from '../components/google-map/google-map';
+import {TripInformationComponent} from '../components/trip-information/trip-information';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {GoogleMapComponent} from '../components/google-map/google-map';
     ContactPage,
     HomePage,
     TabsPage,
-    GoogleMapComponent
+    GoogleMapComponent,
+    TripInformationComponent
   ],
   imports: [
     BrowserModule,

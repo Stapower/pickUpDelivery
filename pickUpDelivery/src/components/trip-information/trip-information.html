@@ -1,0 +1,22 @@
+<div>
+	<ion-label color="primary">Cantidad de animales a transportar: </ion-label>
+	<ion-item>
+		<ion-input type="number" (ionChange)="setCantidadDeAnimales($event._value)"></ion-input>
+	</ion-item>
+
+	<ion-item *ngFor="let animal of animales">
+		
+		<ion-label color="primary">Nombre del animal: </ion-label>
+		<ion-input type="text" [(ngModel)]="animal.nombre"></ion-input>
+
+		<ion-label color="primary">Partida del animal: </ion-label>
+		<ion-input type="text" [(ngModel)]="animal.partida"></ion-input>
+		
+		<ion-label color="primary">Tipo de animal: </ion-label>	
+
+		<ion-select [(ngModel)]="animal.tipo">
+			<ion-option *ngFor="let tipo of tiposDeAnimales.values()" value="{{tipo}}">{{tipo}}</ion-option>
+		</ion-select>
+		
+	</ion-item>
+</div>
