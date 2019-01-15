@@ -1,3 +1,4 @@
+import { DatabaseConnectionComponent } from './../../components/database-connection/database-connection';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -9,9 +10,10 @@ export class HomePage {
 	currentTab;
 	genericStepId = "step-";
 	minimunStep = 1;
-	maximunStep = 2;
+	maximunStep = 3;
 
 	constructor(public navCtrl: NavController) {
+		console.log("*** home ***");
 		this.currentTab = 1;
 	}
 

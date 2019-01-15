@@ -1,4 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
+import { Viaje } from './../../class/Viaje';
+import {} from '@types/googlemaps';
 
 declare var google;
  
@@ -19,6 +21,8 @@ export class GoogleMapComponent {
 	map: any;
 	text: string;
 	
+	static viaje : Viaje;
+
 	startPositionLat = -34.6070355; //obelisco
 	startPositionLon = -58.3842309; //obelisco
 	
@@ -132,19 +136,24 @@ export class GoogleMapComponent {
 		};
 		GoogleMapComponent.directionsService.route(request, function(result, status) {
 			//routes[0]. //most of the time there is only 1 element, unles "provideRouteAlternatives field is set to true"
+			console.log("result: ", result);
+			GoogleMapComponent.viaje = new Viaje();
+			GoogleMapComponent.viaje.from = result.routes[0].legs[0].start_address;
+			GoogleMapComponent.viaje.to = result.routes[0].legs[0].end_address;
+			GoogleMapComponent.viaje.duration = result.routes[0].legs[0].duration.value;
+			GoogleMapComponent.viaje.distance = result.routes[0].legs[0].distance.value;
 
 		  if (status == 'OK' 
 				  && result.geocoded_waypoints[0] != null 
 				  && result.geocoded_waypoints[0] != undefined 
 				  && result.geocoded_waypoints[0].geocoder_status == 'OK')
 			{
+
 				GoogleMapComponent.directionsDisplay.setDirections(result);
 			}
 			  
 		});
 	  }
-	
-
 	/*     var onChangeHandler = function() {
 		calculateAndDisplayRoute(directionsService, directionsDisplay);
 		}

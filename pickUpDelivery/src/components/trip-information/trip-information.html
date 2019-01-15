@@ -4,19 +4,24 @@
 		<ion-input type="number" (ionChange)="setCantidadDeAnimales($event._value)"></ion-input>
 	</ion-item>
 
-	<ion-item *ngFor="let animal of animales">
+	<ion-card  *ngFor="let animal of animalesClass">
 		
-		<ion-label color="primary">Nombre del animal: </ion-label>
-		<ion-input type="text" [(ngModel)]="animal.nombre"></ion-input>
+		<ion-item>
+			<ion-label class="container" for="nombre" color="primary" >Nombre del animal: </ion-label>
+			<ion-input type="text" id="nombre" [(ngModel)]="animal.nombre"></ion-input>
+		</ion-item>
 
-		<ion-label color="primary">Partida del animal: </ion-label>
-		<ion-input type="text" [(ngModel)]="animal.partida"></ion-input>
-		
-		<ion-label color="primary">Tipo de animal: </ion-label>	
+		<ion-item>
+			<ion-label color="primary" for="partida" >Partida del animal: </ion-label>
+			<ion-input type="text" id="partida" name="partida" [(ngModel)]="animal.partida"></ion-input>
+		</ion-item>
 
-		<ion-select [(ngModel)]="animal.tipo">
-			<ion-option *ngFor="let tipo of tiposDeAnimales.values()" value="{{tipo}}">{{tipo}}</ion-option>
-		</ion-select>
-		
-	</ion-item>
+		<ion-item>
+			<ion-label color="primary">Tipo de animal: </ion-label>	
+			<ion-select for="tipo" [(ngModel)]="animal.tipo">
+				<ion-option id="tipo" name="tipo" *ngFor="let tipo of tiposDeAnimales.values()" value="{{tipo}}">{{tipo}}</ion-option>
+			</ion-select>
+		</ion-item>
+
+	</ion-card>	
 </div>

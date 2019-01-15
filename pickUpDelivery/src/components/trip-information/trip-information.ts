@@ -15,11 +15,12 @@ import { Animal } from "../../class/animal";
 export class TripInformationComponent {
 
   cantidadDeAnimalesATransportar : number;
-  animales : Array<Animal>;
+  static animales : Array<Animal>;
+  animalesClass : Array<Animal>;
   tiposDeAnimales = TipoDeAnimal;
 
   constructor() {
-    this.animales = new Array();
+    TripInformationComponent.animales = new Array();
     //this.tiposDeAnimales = new Array();
   
     console.log("tipo de animales: " , TipoDeAnimal);
@@ -27,10 +28,11 @@ export class TripInformationComponent {
 
   setCantidadDeAnimales(numeroDeAnimales){
     this.cantidadDeAnimalesATransportar = numeroDeAnimales;
-    
+    console.log(numeroDeAnimales);
     for(var i= 0 ; i < numeroDeAnimales ; i++){
-      this.animales[i] = new Animal();
+        TripInformationComponent.animales[i] = new Animal();
     }
+    this.animalesClass = TripInformationComponent.animales;
   }
 
 
