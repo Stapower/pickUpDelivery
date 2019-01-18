@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Viaje } from './../../class/Viaje';
-import {} from '@types/googlemaps';
+import { } from '@types/googlemaps';
 
 declare var google;
  
@@ -115,7 +115,8 @@ export class GoogleMapComponent {
 
 	createMap(lat, lon){
 		let coords = new google.maps.LatLng(lat,lon);
-		let mapOptions: google.maps.MapOptions = {
+		
+		let mapOptions = {
 			center : coords,
 			zoom : 14,
 			mapTypeId : google.maps.MapTypeId.ROADMAP

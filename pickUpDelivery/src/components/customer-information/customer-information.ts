@@ -1,3 +1,4 @@
+import { Viaje } from './../../class/Viaje';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { GoogleMapComponent } from './../google-map/google-map';
 import { Order } from './../../class/Order';

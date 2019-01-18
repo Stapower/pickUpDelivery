@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1091378351887",
+    "firebase_url": "https://pickupdelivery-1545977043479.firebaseio.com",
+    "project_id": "pickupdelivery-1545977043479",
+    "storage_bucket": "pickupdelivery-1545977043479.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091378351887:android:c3dd03081e0ade8f",
+        "android_client_info": {
+          "package_name": "com.equilog.pickUpDelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091378351887-renbvp53tvs2un70l8r5690c92clb2kj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj9qoARChvnAIlP4Ur1lXxF94lb3XWZLs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
