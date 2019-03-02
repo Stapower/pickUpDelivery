@@ -1,6 +1,7 @@
 import { DatabaseConnectionComponent } from './../../components/database-connection/database-connection';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { DatabaseConnectionProvider } from './../../providers/database-connection/database-connection'; 
 
 @Component({
 	selector: 'page-home',
@@ -12,8 +13,10 @@ export class HomePage {
 	minimunStep = 1;
 	maximunStep = 3;
 
-	constructor(public navCtrl: NavController) {
+	constructor(public navCtrl: NavController, public databaseProvider :  DatabaseConnectionProvider) {
 		console.log("*** home ***");
+
+		this.databaseProvider.load();
 		this.currentTab = 1;
 	}
 

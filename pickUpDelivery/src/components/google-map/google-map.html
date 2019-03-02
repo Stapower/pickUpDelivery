@@ -1,13 +1,14 @@
 <!-- Generated template for the GoogleMapComponent component -->
+<div id="floating-panel">
+		<b> Desde: </b>
+		<input type="text"  id="start">
+		
+		<b> Hasta: </b>
+		<input type="text"  id="end">
+	
+		<input type="button" id="calculateRoute" (click)="calcRoute()" value="Calcular">
+</div>
+
 <div #map id="map">
 </div>
 
-<div id="floating-panel">
-	<b> Desde: </b>
-	<input type="text"  id="start">
-	
-	<b> Hasta: </b>
-	<input type="text"  id="end">
-
-	<input type="button" id="calculateRoute" (click)="calcRoute()" value="Calcular">
-</div>

@@ -22,6 +22,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { config } from '../class/FirebaseConfig';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { DatabaseConnectionProvider } from '../providers/database-connection/database-connection';
 
 
 export const firebaseConfig = {
@@ -71,7 +72,8 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatabaseConnectionProvider
   ]
 })
 export class AppModule {}

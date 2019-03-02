@@ -6,13 +6,26 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
+    <div>
+        <ion-card  *ngFor="let order of orders">
+          <ion-item>
+            <ion-label class="container" for="nombre" color="primary" > Numero de orden: {{order.numero}} </ion-label>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label color="primary" for="partida" > Distancia en metros: {{order.viaje.distance}} </ion-label>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label color="primary"> Duracion en horas: {{order.viaje.duration/60/60}} </ion-label>	
+          </ion-item>
 
-  <ion-list>
-    <ion-item *ngFor="let order of orders">
-      {{order}}
-    </ion-item>
-  </ion-list>
-
-
+          <ion-item *ngIf='order.animales != null'>
+              <ion-label color="primary"> Cantidad de animales: {{order.animales.length}} </ion-label>	
+          </ion-item>
+      
+        </ion-card>	
+      </div>
 </ion-content>

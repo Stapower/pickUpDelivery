@@ -10,6 +10,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Observer } from 'rxjs';
 import * as firebase from 'firebase/app';
 import { Events } from 'ionic-angular';
+import { DatabaseConnectionProvider } from './../../providers/database-connection/database-connection'; 
 
 /**
  * Generated class for the CustomerInformationComponent component.
@@ -25,11 +26,11 @@ import { Events } from 'ionic-angular';
 export class CustomerInformationComponent {
 
   customer = new Customer();
-  email = "tomynfs2@gmail.com";
-  pass = "QMYwVKsScXzS6eup";//"</uR\6D+7HhXc?+*";
+  //email = "tomynfs2@gmail.com";
+  //pass = "QMYwVKsScXzS6eup";//"</uR\6D+7HhXc?+*";
   order : Order;
   
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public afDatabase: AngularFireDatabase, private events: Events) {}
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public afDatabase: AngularFireDatabase, private events: Events, private databaseConnectionProvider : DatabaseConnectionProvider) {}
   
   orders: any;
   
@@ -43,7 +44,7 @@ export class CustomerInformationComponent {
     this.order.customer = this.customer;
     this.order.animales = TripInformationComponent.animales;
     this.order.viaje = GoogleMapComponent.viaje;
-
+    this.order.numero = this.databaseConnectionProvider != null ? this.databaseConnectionProvider.orders.length+1 : 0;
     console.log("orders: ", this.orders);
     this.events.publish('myEvent', this.order);
     this.events.publish('asd');

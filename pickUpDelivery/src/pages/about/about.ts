@@ -1,8 +1,9 @@
 import { Order } from './../../class/Order';
-import { DatabaseConnectionComponent } from './../../components/database-connection/database-connection';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { DatabaseConnectionProvider } from './../../providers/database-connection/database-connection'; 
+import { Events } from 'ionic-angular';
+import { providerDef } from '@angular/core/src/view';
 
 @Component({
   selector: 'page-about',
@@ -10,14 +11,29 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController) {
-    this.orders = new Array();
+  orders : Array<Order>;
+
+  constructor(public navCtrl: NavController, public databaseProvider :  DatabaseConnectionProvider, private events: Events) {
+    this.orders = new Array<Order>();  
   }
 
-  orders : Array<Order>;
-  cosa : any;
   ngOnInit(){
+    this.events.subscribe('listOfOrders', (orders) => {
+      console.log("listOfOrders");
+      for(let order of orders){
+        console.log('order', order);
+      }
+      this.orders = orders as Array<Order>;
+    });
+
     //this.cosa = this.databaseConnectionComponent.retrieveOrdersWithLogin();
+    //console.log(this.cosa);
   }
+
+  ionViewDidLoad(){
+    this.databaseProvider.load();
+  }
+
+
 
 }

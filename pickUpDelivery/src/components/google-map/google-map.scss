@@ -5,9 +5,9 @@ google-map {
 	}
 
 	#floating-panel {
-        position: absolute;
+        position: relative;
         top: 10px;
-        left: 25%;
+        //left: 25%;
         z-index: 5;
         background-color: #fff;
         padding: 5px;
@@ -17,4 +17,18 @@ google-map {
         line-height: 30px;
         padding-left: 10px;
       }
+
+    button {
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      font-family: Raleway;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
 }
